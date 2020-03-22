@@ -1,10 +1,12 @@
 
+// TODO: Add listeners for keyboard presses
+// loops through the drum buttons in index.html and waits for clicks
 var numberOfDrumButtons = document.querySelectorAll(".drum").length;
-
 for (var i = 0; i < numberOfDrumButtons; i++) {
 
 document.querySelectorAll(".drum")[i].addEventListener("click", function () {
 
+//On click each button plays a different sound based on what kind of drum it represents
   var buttonInnerHTML = this.innerHTML;
   switch (buttonInnerHTML) {
     case "w":
@@ -51,9 +53,3 @@ document.querySelectorAll(".drum")[i].addEventListener("click", function () {
 
 });
 }
-
-
-
-
-//var audio = new Audio('./sounds/crash.mp3');
-//audio.play();
