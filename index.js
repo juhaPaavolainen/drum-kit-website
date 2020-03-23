@@ -1,5 +1,3 @@
-
-
 //Detects mouse clicks
 var numberOfDrumButtons = document.querySelectorAll(".drum").length;
 for (var i = 0; i < numberOfDrumButtons; i++) {
@@ -10,6 +8,7 @@ for (var i = 0; i < numberOfDrumButtons; i++) {
     var buttonInnerHTML = this.innerHTML;
 
     makeSound(buttonInnerHTML);
+    buttonAnimation(buttonInnerHTML);
 
 
 
@@ -20,7 +19,7 @@ for (var i = 0; i < numberOfDrumButtons; i++) {
 //Detects keyboard presses
 document.addEventListener("keydown", function(event) {
   makeSound(event.key);
-
+  buttonAnimation(event.key);
 });
 
 //Takes in either a keyclick or the key property of a keyboard press and plays the corresponding sound
@@ -68,4 +67,14 @@ function makeSound(key) {
 
   }
 
+}
+
+//Adds the class "pressed" to a drum on click of buttons, then removes it after 0.1 seconds
+function buttonAnimation(currentKey) {
+  var activeButton = document.querySelector("." + currentKey);
+  activeButton.classList.add("pressed");
+  setTimeout(function() {
+    activeButton.classList.remove("pressed");
+
+  }, 100);
 }
